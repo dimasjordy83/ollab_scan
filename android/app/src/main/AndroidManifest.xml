@@ -3,7 +3,7 @@
     <application
         android:label="Ollab Scan"
         android:name="${applicationName}"
-        android:usesCleartextTraffic="false"
+        android:usesCleartextTraffic="True"
         android:icon="@mipmap/launcher_icon">
      
         <activity
