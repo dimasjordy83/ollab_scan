@@ -22,7 +22,7 @@ class ResultView extends StatelessWidget {
       canPop: false,
       child: Scaffold(
           appBar: AppBar(
-            title: const Text("Hasil Scan"),
+            title: Text(title),
             centerTitle: true,
             leading: IconButton(
                 onPressed: () {
