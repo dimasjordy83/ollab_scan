@@ -3,6 +3,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ar/constant/approute.dart';
+import 'package:flutter_ar/constant/asset_constant.dart';
 import 'package:get/get.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
 
@@ -13,42 +14,9 @@ class ResultView extends StatelessWidget {
   Widget build(BuildContext context) {
     final Map arguments = Get.arguments;
     String result = arguments['result'].toString().toLowerCase();
-
-    String src;
-    String audio;
-    switch (result) {
-      // case "cooking":
-      //   src = "assets/model/cooking.glb";
-      //   break;
-      // case "paint":
-      //   src = "assets/model/paint.glb";
-      //   break;
-      // case "reading":
-      //   src = "assets/model/reading.glb";
-      //   break;
-      // case "sweep":
-      //   src = "assets/model/sweep.glb";
-      //   break;
-      // case "watching":
-      //   src = "assets/model/watching.glb";
-      //   break;
-      case "number":
-        src = "assets/model/number.glb";
-        audio = "audio/number.mp3";
-        break;
-      case "listening 1":
-        src = "assets/model/talk1.glb";
-        audio = "audio/talk1.mp3";
-        break;
-      case "listening 2":
-        src = "assets/model/talk2.glb";
-        audio = "audio/talk2.mp3";
-        break;
-      default:
-        src = "assets/model/cooking.glb";
-        audio = "audio/talk1.mp3";
-        break;
-    }
+    Map<String, String> assets = AssetsHandler.getResultAssets(result);
+    String src = assets['src']!;
+    String audio = assets['audio']!;
     final AudioPlayer audioPlayer = AudioPlayer();
     return PopScope(
       canPop: false,
